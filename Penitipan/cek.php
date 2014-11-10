@@ -25,6 +25,11 @@
 		echo "Deskripsi Barang : ".$row['deskripsi']."</br>";
 		echo "Nomor Loker : ".$row['no_loker']."</br>";
 		echo "Waktu Penitipan : ".$row['waktu']."</br>";
+		$awal=substr($row['waktu'],0,2);
+		$akhir=date('H');
+		$lama=$akhir-$awal;
+		
+		echo "Biaya : Rp. ".$lama*1000 ."</br>";
 		
 		
 		
