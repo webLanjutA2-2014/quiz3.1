@@ -27,6 +27,7 @@
 		echo "<h2> Daftar pengguna</h2>";
 		?>
 			<a href="tambah.php">tambah data pengguna</a>
+			<a href="cek.php">cek ID transaksi</a>
 			<table>
 			<tr><th>ID</th>
 			<th>Nama</th>
@@ -49,8 +50,8 @@
 		echo "<td>".$row['no_loker']."</td>";
 		echo "<td>".$row['waktu']."</td>";
 		
-		echo "<td><a href=\"edit2.php?&id=".$row['id']."\">edit</a></td>";
-		echo "<td><a href=\"hapus2.php?&id=".$row['id']."\"onclick=\"alert('anda akan menghapus barang!')\">hapus</a></td>";
+		echo "<td><a href=\"kembali.php?&id=".$row['id']."\">edit</a></td>";
+		
 		echo "</tr>";
 		$i++;
 		}
