@@ -1,6 +1,8 @@
 quiz3.1
 =======
 
+SAKA WIBAWA PUTRA (04682)
+
 Quiz ini dikerjakan oleh mahasiswa dengan nomor absen ganjil. Lebih baik baca file ini terlebih dahulu sampai selesai.
 
 Berikut adalah sepenggal proses bisnis dalam sebuah tempat penitipan barang :
