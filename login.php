@@ -1,4 +1,4 @@
-<form accept-charset="UTF-8" role="form" method="POST">
+	<form accept-charset="UTF-8" role="form" method="POST">
 <fieldset align="center">
 	<h3> Login Petugas </h3>
 	<div class="form-group">
@@ -9,8 +9,11 @@
 	</div>
 	
 	<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+	<br>Untuk cek tarif klik <a href="cek_tarif.php">disini </a>
 </fieldset>
 </form>
+
+
 
 <?php include"koneksi.php"; 
 	session_start();
