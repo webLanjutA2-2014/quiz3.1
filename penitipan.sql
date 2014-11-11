@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 10, 2014 at 11:00 AM
--- Server version: 5.5.25a
--- PHP Version: 5.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 11, 2014 at 04:06 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `waktu_mulai` datetime NOT NULL,
   `waktu_selesai` datetime NOT NULL,
   `diambil` tinyint(1) NOT NULL,
+  `tarif` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,9 +43,15 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `nama_pengguna`, `hp`, `deskripsi`, `no_loker`, `waktu_mulai`, `waktu_selesai`, `diambil`) VALUES
-(3, 'fgd', 'dfg', 'dgdfg', 4, '2014-11-10 16:22:46', '0000-00-00 00:00:00', 0),
-(4, 'gfg', 'fgfg', 'fgfg', 32, '2014-11-10 16:26:15', '0000-00-00 00:00:00', 0);
+INSERT INTO `pengguna` (`id`, `nama_pengguna`, `hp`, `deskripsi`, `no_loker`, `waktu_mulai`, `waktu_selesai`, `diambil`, `tarif`) VALUES
+(1, 'asas', '098765321', 'barang curian', 1, '2014-11-11 08:13:58', '2014-11-11 08:15:25', 1, 17),
+(5, 'as', '0986', 'dsds', 9, '2014-11-11 05:15:57', '2014-11-11 08:46:25', 1, 3500),
+(10, 'aa', '08765433', 'barang siapa yang... ', 12, '2014-11-11 08:32:02', '0000-00-00 00:00:00', 0, 0),
+(11, 'aa', '08765433', 'barang siapa yang... ', 12, '2014-11-11 08:34:16', '0000-00-00 00:00:00', 0, 0),
+(19, 'supri', '0987654321', ' barang berharga', 12, '2014-11-11 08:47:21', '0000-00-00 00:00:00', 0, 0),
+(78, 'supri', '0987654321', ' barang berharga', 12, '2014-11-11 08:48:47', '2014-11-11 10:01:03', 1, 1200),
+(89, 'susi ', '093234', 'barang kali ', 32, '2014-11-11 09:29:42', '2014-11-11 09:29:52', 1, 0),
+(90, 'kamto', '02323434', 'barang temuan ', 56, '2014-11-11 08:52:34', '2014-11-11 08:53:17', 1, 0);
 
 -- --------------------------------------------------------
 
