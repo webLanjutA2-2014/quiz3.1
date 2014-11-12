@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<?php //require_once('cekLogin.php'); ?>
+<?php require_once('../include/cekLogin.php');; ?>
 <html>
 <head>
 	<title>Titip Barang</title>
 </head>
 <body>
 	<h1>Titip Barang</h1>
+	<p><a href="menu.php">Kembali</a></p>
+	<p><a href="../mainMenu.php">Menu Utama</a></p>
 	<form action="" method="POST" id="usrform">
 		<p>Nama Penitip : <input type="text" name="nama_penitip"></p>
 		<p>No HP : <input type="text" name="no_hp"></p>

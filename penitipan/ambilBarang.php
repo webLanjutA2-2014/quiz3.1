@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-//require_once('cekLogin.php');
+require_once('../include/cekLogin.php');
 require_once("../include/koneksi.php");
 if(isset($_GET['id']))
 {

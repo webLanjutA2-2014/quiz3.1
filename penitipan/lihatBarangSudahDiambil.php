@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-//require_once('cekLogin.php');
+require_once('../include/cekLogin.php');
 require_once("../include/koneksi.php");
 
 $SQLQuery = "SELECT * FROM penitipan WHERE sudah_diambil = TRUE";
@@ -13,7 +13,7 @@ $query = mysqli_query($con, $SQLQuery);
 	<title>Lihat Barang</title>
 </head>
 <body>
-	<h1>DAFTAR BARANG</h1>
+	<h1>HISTORY DAFTAR BARANG</h1>
 	<p><a href="menu.php">Kembali</a></p>
 	<p><a href="../mainMenu.php">Menu Utama</a></p>
 	<table>
@@ -43,6 +43,7 @@ $query = mysqli_query($con, $SQLQuery);
 					$sqlharga = "SELECT TIMESTAMPDIFF(SECOND, waktu_masuk, waktu_keluar) as bayar from penitipan where id_penitip=".$row['id_penitip'];
 					$queryHarga = mysqli_query($con, $sqlharga) or die ("GET DATA ERROR". mysqli_error($con));
 					$harga = mysqli_fetch_assoc($queryHarga);
+					$harga['bayar'] = $harga['bayar'] / 3600 * 1000;
 
 				echo "<td>".$harga['bayar']."</td>";
 			echo "</tr>";

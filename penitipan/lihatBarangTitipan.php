@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-//require_once('cekLogin.php');
+require_once('../include/cekLogin.php');
 require_once("../include/koneksi.php");
 
 $SQLQuery = "SELECT * FROM penitipan WHERE sudah_diambil = FALSE";

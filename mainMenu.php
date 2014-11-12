@@ -12,7 +12,8 @@ if(!isset($_SESSION['login']))
 <body>
 <h2>SELAMAT DATANG <?=$_SESSION['name']?></h2>
 <h3>Pilih Menu</h3>
-<a href="penitipan/menu.php">Sistem Penitipan</a> <br>
+<p><a href="penitipan/menu.php">Sistem Penitipan</a></p>
+<p><a href="cekBarang/inputId.php">Cek Bayar</a> <br></p>
 
 <br>
 <br>

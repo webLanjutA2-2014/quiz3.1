@@ -12,15 +12,17 @@
 	<title>Login Form</title>
 </head>
 <body>
-	<h1>LOGIN PENGGUNA</h1>
+	<h1>CEK BARANG UNTUK USER</h1>
+	<p><a href="cekBarang/inputId.php">--> Halaman Cek Barang <--</a></p>
+	<br>
+	<br>
+	<h1>LOGIN ADMIN</h1>
+	<h5>Silakan test login dengan User dan Password : saka</h5>
 	<form action="" method="POST">
 		<p>USERNAME   : <input type="text" name="username"></p>
 		<p>PASSWORD : <input type="password" name="password"></p>
 		<p><input type="submit" value="Login"></p>
 	</form>
-
-	<h1>CEK BARANG</h1>
-	<p><a href="cekBarang/inputId.php">Halaman Cek Barang</a></p>
 <?php
 	require_once("include/koneksi.php");
 	
