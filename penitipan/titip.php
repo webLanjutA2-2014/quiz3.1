@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require_once('../include/cekLogin.php');; ?>
+<?php require_once('../include/cekLogin.php'); ?>
 <html>
 <head>
 	<title>Titip Barang</title>

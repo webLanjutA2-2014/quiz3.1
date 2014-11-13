@@ -42,7 +42,6 @@ if(isset($_GET['id']))
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-	require_once("koneksi.php");
 	$id = $_POST['id'];
 	
 	$SQLQuery = "UPDATE penitipan SET sudah_diambil = TRUE, waktu_keluar = now() WHERE id_penitip=$id";
