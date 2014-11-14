@@ -1,11 +1,11 @@
 <html>
 <head>
-	<title>tabel barang</title>
+	<title>List Penitipan Barang</title>
 	</head>
 	<body>
 	<?php
 		$host='localhost';
-		$dbname='penitipan';
+		$dbname='vancouver';
 		$user='root';
 		$pass='';
 		
@@ -20,45 +20,52 @@
 		}
 		
 		//membuat koneksi database dengan php
-		$query = mysqli_query($con, "select * from barang");
+		$query = mysqli_query($con, "select * from transaksi");
 		//mysqli_fetch_row();   menampilkan database yang akan di import
 		//mysqli_fetch_array();	menampilkan database yang akan di import
 		
-		echo "<h2> Daftar Barang</h2>";
+		echo "<h2> Daftar Penitipan Barang</h2>";
+		
 		?>
-			<a href="tambah.php">tambah data barang</a>
-			<table>
+			<a href="menambahbarang.php">menambah barang titipan</a>
+			<a href="mengambilbarang.php">mengambil barang titipan</a>
+			<a href="logout.php"> dipersilahkan keluar </a>
+			<br>
+			<table border="2">
+			<br>
 			<tr><th>No.</th>
-			<th>nama barang</th>
-			<th>kuantitas</th>
-			<th>harga barang</th>
-			<th colspan="2"> aksi</th>
+			<th>id titip</th>
+			<th>nama pengguna</th>
+			<th>deskripsi</th>
+			<th>No HP</th>
+			<th>No Loker</th>
+			<th>waktu penitipan</th>
+			<th> status boyy </th>
+			<th> hayoo dihapus </th>
 			</tr>
+			
 		<?php
-		$i=1;
-		while ($row = mysqli_fetch_array($query)){
+		$i = 1;
+		while ($row = mysqli_fetch_assoc($query)){
 		
 		echo "<tr>";
 		echo "<td>".$i."</td>";
-		echo "<td>".$row['nama_barang']."</td>";
-		echo "<td>".$row['kuantitas']."</td>";
-		echo "<td>".$row['harga']."</td>";
-		echo "<td><a href=\"edit.php?&id=".$row['id_barang']."\">edit</a></td>";
-		echo "<td><a href=\"hapus.php?&id=".$row['id_barang']."\"onclick=\"alert('anda akan menghapus barang!')\">hapus</a></td>";
+		echo "<td>".$row['id']."</td>";
+		echo "<td>".$row['nama_pengguna']."</td>";
+		echo "<td>".$row['deskripsi']."</td>";
+		echo "<td>".$row['no_HP']."</td>";
+		echo "<td>".$row['no_Loker']."</td>";
+		echo "<td>".$row['waktu']."</td>";
+		echo "<td><a href=\"cekBarang.php?&id=".$row['id']."\"	onclick=\"alert('Anda Akan mengecek barang titipan!')\">cekbarang</a></td>";
+		echo "<td><a href=\"hapus.php?&id=".$row['id']."\"	onclick=\"alert('Anda Akan menghapus barang titipan!')\">hapus</a></td>";
 		echo "</tr>";
 		$i++;
 		}
+
 	
 	
 		
-		//$query=mysqli_query($con, "select *from barang");
-		//$result=mysqli_fetch_array($query);
-		
-		//foreach ($result as $item){
-			//echo $item[1];
-			//echo $item[2];
-			//echo $item[3];
-		
+
 	?>
 	<?php
 		//if($_SERVER['REQUEST_METHOD'] == 'GET'){
