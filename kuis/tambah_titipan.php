@@ -27,7 +27,7 @@
 	  <li role="presentation"><a href="index.php">Daftar</a></li>
 	  <li role="presentation"><a href="ambil_titipan.php" >Ambil Barang Titipan</a></li>
 	  <li role="presentation"><a href="cekstatus.php">Cek Status Barang</a></li>
-	  <li role="presentation class="active""><a href="tambah_titipan.php">Tambah Data Titipan</a></li>
+	  <li role="presentation class="active"><a href="tambah_titipan.php">Tambah Barang Titipan</a></li>
 	</ul>
 	<?php session_start();
 if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){ ?>
