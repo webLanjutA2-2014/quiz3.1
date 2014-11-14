@@ -36,7 +36,16 @@ require('koneksi.php');
 session_start();
 if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
 	echo "<h2>Daftar Barang Titipan</h2>";
+	
+	$sql="Update transaksi set 
+	 jam_ambil=now() ,
+	 durasi=(select timestampdiff(Hour,jam_masuk,jam_ambil)), 
+	 biaya=(durasi*1000) where ket = ' '";
+	
+	mysqli_query($con, $sql) or die(' Error Oom'.mysql_error($con));
+	
 	?>
+	
 	<table border="2"><tr>
 		<th>No</th>
 		<th>Nomor Transaksi</th>
@@ -50,6 +59,8 @@ if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
 		<th>Keterangan</th>
 	</tr>
 	<?php
+	
+	
 	$i=1;
 	$query= mysqli_query($con, "SELECT * From transaksi");
 	while ($data =mysqli_fetch_assoc($query)){
@@ -66,7 +77,11 @@ if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
 		echo "<td>".$data['ket']."</td>";
 		$i++;
 	}
+	
 ?>
+	<tr>
+		<td><a href="index.php">Check Harga</a></td>
+	</tr>
 </table>
 </body>
 </html>

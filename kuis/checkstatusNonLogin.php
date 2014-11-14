@@ -18,21 +18,10 @@
 </head>
 <body>
 </br>
-<div class="row">
-  <div class="col-md-offset-11"><a href="logout.php">Logout</a></div>
-</div>
-</br>
-</br>
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="index.php">Daftar</a></li>
-  <li role="presentation"><a href="ambil_titipan.php" >Ambil Barang Titipan</a></li>
-  <li role="presentation" class="active"><a href="cekstatus.php">Cek Status Barang</a></li>
-  <li role="presentation"><a href="tambah_titipan.php">Tambah Data Titipan</a></li>
-</ul>
+
 <?php session_start();
 
-if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){ 
-?>
+ ?>
 <H2 align="center">Pencarian</H2>
 <form action=" " method="POST" enctype="multipart/form-data">
   <table align="center"; margin="100">
@@ -43,10 +32,12 @@ if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
     <tr>
     	<td align="right"><input type="submit" value="Cari"></td>
     </tr>
+	<tr>
+    	<td align="left"><a href="login.php">Back to Login</a></td>
+    </tr>
   </table>
 </form>
 		
-
 <?php
 	
 	require('koneksi.php');
@@ -88,10 +79,6 @@ if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
 		echo "</table>";
 	}}
 ?>
-<?php
-	}else{
-		header('location:login.php');
-	}
-?>
+
 </body>
 </html>

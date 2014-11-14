@@ -34,6 +34,10 @@
 				<input type="submit" name="login" value="Login"/>
 				</font>
 				</form>
+				</br>
+				<div class="row">
+				  <div class="col-md-offset-11" style="background-color:white;"><a href="checkstatusNonLogin.php">Check Status Barang</a></div>
+				</div>
 	</div>
 
 
