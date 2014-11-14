@@ -80,7 +80,7 @@ if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
 	
 ?>
 	<tr>
-		<td><a href="index.php">Check Harga</a></td>
+		<td><a href="index.php">Refresh</a></td>
 	</tr>
 </table>
 </body>
