@@ -1,30 +1,64 @@
+<html> 
+	<head>
+		<title>Halaman Tambah Barang</title>
+	</head>
+	<body>
 
-<form action="" method="post">
-	<p>Nama Barang:
-		<input type="text" name="nama_barang"></p>
-	<p>loker:
-		<input type="text" name="loker"></p>
-	<p>nama_pelanggan:
-		<input type="text" name="nama_pelanggan"></p>
-	<p><input type="submit" value="tambah Barang" name="tambah"></p>
-</form>
- 
- <?php
- 
-	require('konek.php');//memanggil koneksi database atau require(jika filenya gak ada maka akan error)bisa juga dengan include
+	<?php session_start();
+if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){ ?>
+		
+		<form action=" " method="POST" enctype="multipart/form-data">
+ 	    <table>
+ 	    <tr>
+ 	    	<td><H2>Tambah Barang</H2></td>
+ 	    </tr>
+   		<tr>
+        	<td>Nama Pelanggan	: </td>
+        	<td><input type="text" name="nama_pelanggan"></td>
+    	</tr>
+    	<tr>
+        	<td>No HP	: </td>
+        	<td><input type="text" name="no_hp"></td>
+    	</tr>
+    	<tr>
+        	<td>Deskripsi Barang	: </td>
+        	<td><input type="text" name="desc_barang"></td>
+    	</tr>
+    	<tr>
+        	<td>Nomor Loker	: </td>
+        	<td><input type="text" name="no_loker"></td>
+    	</tr>
+    	<tr>
+    		<td><input type="submit" value="tambah"></td>
+    	</tr>
+    	<tr>
+    		<td><a href="index.php">Back</a></td>
+    	</tr>
+  		</table>
+		</form>
+<?php
+	require('koneksi.php');
 	
-	if($_SERVER['REQUEST_METHOD']=='POST'){
-	$nama_barang = $_POST['nama_barang'];
-	$loker = $_POST['loker'];
-	$nama_pelanggan  = $_POST['nama_pelanggan'];
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$nama_pelanggan=$_POST['nama_pelanggan'];
+		$no_hp=$_POST['no_hp'];
+		$desc_barang=$_POST['desc_barang'];
+		$no_loker=$_POST['no_loker'];
 	
-	$sql="insert into barang(nama_barang,loker,nama_pelanggan)values
-	('$nama_barang', $loker, '$nama_pelanggan')";
+	$sql="INSERT INTO transaksi(nama_pelanggan, no_hp, desc_barang, no_loker, jam_masuk) 
+	VALUES ('$nama_pelanggan', $no_hp, '$desc_barang' , '$no_loker', now())";
 	
-	mysqli_query($con, $sql) or die('gagal'.mysqli_error($con));
+	mysqli_query($con, $sql) or die('Insert Data Error Oom'.mysql_error($con));
 	
 	header('location:index.php');
-	
-	
 	}
- ?>
+?>
+
+
+<?php
+	}else{
+		header('location:login.php');
+	}
+?>
+	</body>
+</html>

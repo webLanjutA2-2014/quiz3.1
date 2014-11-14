@@ -1,98 +1,61 @@
 <html>
 <head>
-	<title>tabel barang</title>
-	</head>
-	<body>
+<title>Daftar Barang</title>
+</head>
+<body>
+<table><tr>
+	<th><a href="tambah.php" align="right">Tambah Data Barang</a></th>
+	<th><a href="ambil.php" align="right">Ambil Barang</a></th>
+	<th><a href="cari.php" align="right">Pencarian Barang</a></th>
+	<th><th><a href="logout.php" align="right">Logout</a></th></th>
+</tr></table>
+<?php
+require('koneksi.php');
+session_start();
+if(isset($_SESSION['login']) && ($_SESSION['login'] == 1)){
+	echo "<h2>Daftar Barang Titipan</h2>";
+	?>
+	<table border="5px"><tr>
+		<th>No</th>
+		<th>Nomor Transaksi</th>
+		<th>Nama Pelanggan</th>
+		<th>Nomor HP</th>
+		<th>Deskripsi Barang</th>
+		<th>Nomor Loker</th>
+		<th>Jam Masuk</th>
+		<th>Jam Ambil</th>
+		<th>Durasi</th>
+		<th>Biaya</th>
+		<th>Aksi</th>
+	</tr>
 	<?php
-		$host='localhost';
-		$dbname='penitipan';
-		$user='root';
-		$pass='';
-		
-		$con = mysqli_connect($host, $user, $pass, $dbname);
-		
-		if(mysqli_connect_errno()){
-			echo "koneksi error: ". mysqli_connect_error();
-		
-		}else{
-		
-		echo "";
-		}
-		
-		//membuat koneksi database dengan php
-		$query = mysqli_query($con, "select * from transaksi");
-		//mysqli_fetch_row();   menampilkan database yang akan di import
-		//mysqli_fetch_array();	menampilkan database yang akan di import
-		
-		echo "<h2> Daftar Barang</h2>";
-		?>
-			<a href="tambah.php">tambah data barang</a>
-			<table>
-			<tr><th>No.</th>
-			<th>Nama Barang</th>
-			<th>loker</th>
-			<th>nama_pelanggan</th>
-			<th>Aksi</th>
-			<th colspan="2"> aksi</th>
-			<th colspan="2"> aksi</th>
-			<th colspan="2"> aksi</th>
-			</tr>
-		<?php
-		$i=1;
-		while ($row = mysqli_fetch_array($query)){
-		
+	$i=1;
+	$query= mysqli_query($con, "SELECT * From transaksi");
+	while ($data =mysqli_fetch_assoc($query)){
 		echo "<tr>";
 		echo "<td>".$i."</td>";
-		echo "<td>".$row['nama_barang']."</td>";
-		echo "<td>".$row['loker']."</td>";
-		echo "<td>".$row['nama_pelanggan']."</td>";
-		echo "<td><a href=\"edit.php?&id=".$row['id_barang']."\">edit</a></td>";
-		echo "<td><a href=\"hapus.php?&id=".$row['id_barang']."\"onclick=\"alert('anda akan menghapus barang!')\">hapus</a></td>";
-		echo "<td><a href=\"tarif.php?&id=".$row['id_barang']."\">tarif</a></td>";
-		echo "<td><a href=\"cek.php?&id=".$row['id_barang']."\">cek</a></td>";
+		echo "<td>".$data['no_trx']."</td>";
+		echo "<td>".$data['nama_pelanggan']."</td>";
+		echo "<td>".$data['no_hp']."</td>";
+		echo "<td>".$data['desc_barang']."</td>";
+		echo "<td>".$data['no_loker']."</td>";
+		echo "<td>".$data['jam_masuk']."</td>";
+		echo "<td>".$data['jam_ambil']."</td>";
+		echo "<td>".$data['durasi']."</td>";
+		echo "<td>".$data['biaya']."</td>";
+		//echo "<td>".$data['username']."</td>";
+		//echo "<td><a href=\"edit_barang.php?id=".$data['no_trx']."\">Edit</a></td>";
+		echo "<td><a href=\"hapus2.php?id=".$data['no_trx']."\" onclick=\"alert('Anda Akan Menghapus Barang??')\">Hapus</a></td>";
 		echo "</tr>";
 		$i++;
-		}
-	
-	
-		
-		//$query=mysqli_query($con, "select *from barang");
-		//$result=mysqli_fetch_array($query);
-		
-		//foreach ($result as $item){
-			//echo $item[1];
-			//echo $item[2];
-			//echo $item[3];
-		
-	?>
-	<?php
-		//if($_SERVER['REQUEST_METHOD'] == 'GET'){
-		/*if(isset($_GET['aksi'])){
-			$aksi = $_GET['aksi'];
-			
-			switch($aksi){
-				case 'hapus':
-					hapus_barang($con, $_GET['id']);
-					break;
-				case 'edit':
-					edit_barang($_GET['id']);
-					break;
-				case 'tambah':
-					tambah_barang();
-					break;
-				default:
-					tambah_barang();
-					break;
-			}
-			
-		}
-		
-	function hapus_barang($con, $id){
-		$query = mysqli_query($con,"DELETE FROM barang
-		WHERE id_barang = $id");
-		
-	
-	}*/
-	
-	?>
-	</table>
+	}
+?>
+</table>
+</body>
+</html>
+
+<?php
+	}else{
+		header('location:login.php');
+	}
+?>
