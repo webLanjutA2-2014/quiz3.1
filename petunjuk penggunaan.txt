@@ -1,0 +1,5 @@
+1. untuk penginputan waktu pada form waktu ketika akan menambahkan data penitipan gunakan now();
+2. untuk admin yang akan login menggunakan login_admin.php
+3. untuk user yang akan mencari data penitipan menggunankan form_pencarian.php
+4. tabel pada daatbase yang digunakan yaitu tabel nitip, sebagai tabel untuk menyimpan data siapa saja yang meniitipkan barang
+5. sedangkan tabel admin untuk menyimpan data admin agar bisa login 
